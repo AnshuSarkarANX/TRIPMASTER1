@@ -615,19 +615,42 @@ html {
 
 .footer-link {
   font-size: 2rem;
-  color: var(--white-color);
   margin: 0 2rem;
   background-color: var(--grey-color);
   padding: 0.3rem 3rem;
   letter-spacing: 0.3rem;
-  transition: all 0.2s;
+  background-image: linear-gradient(to right,
+      #B2BBC4,
+      #B2BBC4 50%,
+      white 50%);
+  background-size: 200% 100%;
+  background-position: -100%;
+  display: inline-block;
+  position: relative;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.footer-link:before {
+  content: '';
+  background: #B2BBC4;
+  display: block;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 3px;
+  transition: all 0.3s ease-in-out;
 }
 
 .footer-link:hover {
-  transform: rotate(-10deg);
-  box-shadow: 0 2rem 3rem #000;
+  background-position: 0;
 }
 
+.footer-link:hover::before {
+  width: 100%;
+}
 .footer-paragraph {
   text-align: center;
   font-size: 1.5rem;
